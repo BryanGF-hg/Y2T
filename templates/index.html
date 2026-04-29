@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Panel Admin - Transcripts</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="layout">
+    <!-- IZQUIERDA 30% -->
+    <aside class="sidebar">
+      <h2>Admin</h2>
+      <button class="menu-btn" data-view="buscar">Buscar</button>
+      <button class="menu-btn" data-view="traduccion">Traducción</button>
+      <button class="menu-btn" data-view="config">Configuración</button>
+      <hr />
+      <div class="hint">
+        <small>Tip: Guarda items en LocalStorage y sincroniza con DB.</small>
+      </div>
+    </aside>
+
+    <!-- DERECHA 70% -->
+    <main class="main">
+      <section class="search">
+        <input id="ytInput" type="text" placeholder="Pega un link de YouTube o nombre..." />
+        <select id="langSelect">
+          <option value="">(sin traducción)</option>
+          <option value="es">es</option>
+          <option value="en">en</option>
+          <option value="fr">fr</option>
+        </select>
+        <button id="btnAdd">Añadir</button>
+        <button id="btnScrape">Obtener transcript</button>
+      </section>
+
+      <section class="bottomSplit">
+        <!-- 40% LISTADO CRUD -->
+        <div class="filesPanel">
+          <div class="panelHeader">
+            <h3>Archivos (CRUD)</h3>
+            <button id="btnReload">Recargar</button>
+          </div>
+          <ul id="filesList" class="filesList"></ul>
+        </div>
+
+        <!-- 60% POPUP / VIEWER -->
+        <div class="viewerPanel">
+          <div class="panelHeader">
+            <h3>Transcript</h3>
+            <div class="viewerActions">
+              <button id="btnSaveEdit">Guardar</button>
+              <button id="btnDelete">Eliminar</button>
+              <button id="btnModal">Popup</button>
+            </div>
+          </div>
+
+          <input id="titleField" class="titleField" placeholder="Título..." />
+          <textarea id="transcriptField" class="transcriptField" placeholder="Aquí aparecerá el transcript..."></textarea>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL POPUP -->
+  <div id="modal" class="modal hidden">
+    <div class="modalContent">
+      <div class="modalHeader">
+        <strong id="modalTitle">Transcript</strong>
+        <button id="btnCloseModal">X</button>
+      </div>
+      <pre id="modalBody" class="modalBody"></pre>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
+``
